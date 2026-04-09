@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud Browser — Login</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0f;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', monospace;
+    color: #e0e0e0;
+  }
+  .container {
+    background: #111118;
+    border: 1px solid #1e1e2e;
+    border-radius: 12px;
+    padding: 40px;
+    width: 340px;
+    box-shadow: 0 0 40px rgba(99,102,241,0.1);
+  }
+  .logo {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .logo .icon { font-size: 40px; margin-bottom: 10px; }
+  .logo h1 { font-size: 20px; color: #818cf8; letter-spacing: 2px; }
+  .logo p { font-size: 11px; color: #4a4a5a; margin-top: 4px; }
+  input[type="password"] {
+    width: 100%;
+    background: #0d0d14;
+    border: 1px solid #1e1e2e;
+    color: #e0e0e0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input[type="password"]:focus { border-color: #6366f1; }
+  button {
+    width: 100%;
+    background: #6366f1;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 12px;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+  }
+  button:hover { background: #4f52d4; }
+  .error {
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.3);
+    color: #f87171;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  label { font-size: 11px; color: #4a4a5a; display: block; margin-bottom: 6px; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="logo">
+    <div class="icon">🌐</div>
+    <h1>CLOUD BROWSER</h1>
+    <p>Personal Remote Browser</p>
+  </div>
+  {% if error %}
+  <div class="error">{{ error }}</div>
+  {% endif %}
+  <form method="POST">
+    <label>ACCESS PASSWORD</label>
+    <input type="password" name="password" placeholder="Enter password..." autofocus>
+    <button type="submit">ENTER →</button>
+  </form>
+</div>
+</body>
+</html>
