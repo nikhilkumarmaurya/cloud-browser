@@ -2,14 +2,10 @@ services:
   - type: web
     name: cloud-browser
     env: python
-    runtime: python
-    pythonVersion: "3.11.0"
-    buildCommand: "pip install -r requirements.txt && playwright install chromium && playwright install-deps chromium"
+    buildCommand: "pip install -r requirements.txt && playwright install chromium"
     startCommand: "gunicorn app:app --worker-class simple_websocket.ws.WSGIHandler --workers 1 --bind 0.0.0.0:$PORT --timeout 300"
     envVars:
       - key: ACCESS_PASSWORD
         value: nikhil123
       - key: SECRET_KEY
         value: change-this-secret-key
-      - key: PYTHON_VERSION
-        value: "3.11.0"
