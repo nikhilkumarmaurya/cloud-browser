@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: cloud-browser
+    env: python
+    buildCommand: "pip install -r requirements.txt && playwright install chromium && playwright install-deps chromium"
+    startCommand: "gunicorn app:app --worker-class geventwebsocket.gunicorn.workers.GeventWebSocketWorker --workers 1 --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: ACCESS_PASSWORD
+        value: nikhil123        # <-- CHANGE THIS!
+      - key: SECRET_KEY
+        value: change-this-secret-key
+      - key: PYTHON_VERSION
+        value: 3.11.0
